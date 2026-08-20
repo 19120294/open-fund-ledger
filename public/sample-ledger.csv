@@ -1,0 +1,11 @@
+id,date,type,category,description,amount,reference
+TX-001,2026-07-01,income,Community donations,Opening community contributions,18500000,CAMPAIGN-JUL
+TX-002,2026-07-03,expense,Food support,Essential food packages for 20 households,6200000,RECEIPT-1001
+TX-003,2026-07-05,expense,Education,Books and stationery for local students,3150000,RECEIPT-1002
+TX-004,2026-07-08,income,Local sponsors,Contribution from neighborhood businesses,9000000,SPONSOR-JUL
+TX-005,2026-07-10,expense,Transport,Delivery and volunteer transport,1250000,RECEIPT-1003
+TX-006,2026-07-14,expense,Health support,Community first-aid supplies,2100000,RECEIPT-1004
+TX-007,2026-07-18,income,Fundraising event,Weekend community market,7400000,EVENT-JUL
+TX-008,2026-07-22,expense,Operations,Printing and event materials,980000,RECEIPT-1005
+TX-009,2026-07-25,expense,Food support,Additional emergency food packages,2750000,RECEIPT-1006
+TX-010,2026-07-30,expense,Education,Scholarship contribution,4000000,SCHOLARSHIP-01
