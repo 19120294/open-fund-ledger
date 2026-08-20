@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A privacy-first transparency dashboard for community funds."
+    />
+    <meta name="theme-color" content="#0f766e" />
+    <title>Open Fund Ledger</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to ledger</a>
+
+    <header class="hero">
+      <nav class="nav shell" aria-label="Primary navigation">
+        <a class="brand" href="./" aria-label="Open Fund Ledger home">
+          <span class="brand-mark" aria-hidden="true">OF</span>
+          <span>Open Fund Ledger</span>
+        </a>
+        <a
+          class="github-link"
+          href="https://github.com/19120294/open-fund-ledger"
+          target="_blank"
+          rel="noreferrer"
+        >
+          View source
+          <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+
+      <div class="hero-content shell">
+        <div>
+          <p class="eyebrow">Community finance, made understandable</p>
+          <h1>Transparency without giving up privacy.</h1>
+          <p class="hero-copy">
+            Turn a simple CSV ledger into a clear, accessible view of community
+            income and spending. Your file stays in your browser.
+          </p>
+        </div>
+        <aside class="privacy-card" aria-label="Privacy promise">
+          <span class="privacy-icon" aria-hidden="true">✓</span>
+          <div>
+            <strong>Local-only processing</strong>
+            <p>No account, backend, analytics, or file upload.</p>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main id="main-content" class="shell">
+      <section class="toolbar" aria-labelledby="data-heading">
+        <div>
+          <p class="section-kicker">Current data source</p>
+          <h2 id="data-heading">Community support demo</h2>
+          <p id="data-status" class="status" role="status" aria-live="polite">
+            Showing privacy-safe sample transactions.
+          </p>
+        </div>
+
+        <div class="toolbar-actions">
+          <label class="button button-primary" for="csv-file">
+            Import CSV
+          </label>
+          <input
+            id="csv-file"
+            class="visually-hidden"
+            type="file"
+            accept=".csv,text/csv"
+          />
+          <button id="export-csv" class="button button-secondary" type="button">
+            Export view
+          </button>
+          <button id="load-demo" class="button button-quiet" type="button">
+            Reset demo
+          </button>
+        </div>
+      </section>
+
+      <section class="summary-grid" aria-label="Ledger summary">
+        <article class="summary-card summary-income">
+          <span>Income</span>
+          <strong id="total-income">—</strong>
+          <small>Funds received</small>
+        </article>
+        <article class="summary-card summary-expense">
+          <span>Expenses</span>
+          <strong id="total-expense">—</strong>
+          <small>Funds distributed</small>
+        </article>
+        <article class="summary-card summary-balance">
+          <span>Balance</span>
+          <strong id="balance">—</strong>
+          <small>Income minus expenses</small>
+        </article>
+        <article class="summary-card">
+          <span>Transactions</span>
+          <strong id="transaction-count">—</strong>
+          <small>In the current ledger</small>
+        </article>
+      </section>
+
+      <section class="panel filters-panel" aria-labelledby="filter-heading">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Explore the data</p>
+            <h2 id="filter-heading">Filter transactions</h2>
+          </div>
+          <button id="clear-filters" class="text-button" type="button">
+            Clear filters
+          </button>
+        </div>
+
+        <div class="filters">
+          <label>
+            <span>Search</span>
+            <input
+              id="search"
+              type="search"
+              placeholder="Description, category, reference…"
+              autocomplete="off"
+            />
+          </label>
+          <label>
+            <span>Type</span>
+            <select id="type-filter">
+              <option value="all">All types</option>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
+          </label>
+          <label>
+            <span>Category</span>
+            <select id="category-filter">
+              <option value="all">All categories</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel category-panel" aria-labelledby="category-heading">
+          <div class="panel-heading">
+            <div>
+              <p class="section-kicker">Where funds went</p>
+              <h2 id="category-heading">Expense breakdown</h2>
+            </div>
+          </div>
+          <ol id="category-breakdown" class="breakdown-list"></ol>
+        </section>
+
+        <aside class="panel guide-panel" aria-labelledby="guide-heading">
+          <p class="section-kicker">Publish responsibly</p>
+          <h2 id="guide-heading">Before sharing a ledger</h2>
+          <ul class="check-list">
+            <li>Remove donor names and private contact details.</li>
+            <li>Use public receipt or campaign references.</li>
+            <li>Keep one currency per ledger.</li>
+            <li>Have a second person review the source file.</li>
+          </ul>
+          <a class="template-link" href="./sample-ledger.csv" download>
+            Download CSV template
+            <span aria-hidden="true">↓</span>
+          </a>
+        </aside>
+      </div>
+
+      <section class="panel ledger-panel" aria-labelledby="ledger-heading">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Public record</p>
+            <h2 id="ledger-heading">Transactions</h2>
+          </div>
+          <p id="result-count" class="result-count" aria-live="polite"></p>
+        </div>
+
+        <div class="table-scroll" tabindex="0" aria-label="Scrollable transactions">
+          <table>
+            <caption>
+              Income and expenses in the selected ledger view
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Type</th>
+                <th scope="col">Reference</th>
+                <th scope="col" class="amount-column">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="transaction-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="privacy-note" aria-labelledby="privacy-heading">
+        <span class="privacy-note-icon" aria-hidden="true">i</span>
+        <div>
+          <h2 id="privacy-heading">Your data stays on this device</h2>
+          <p>
+            Imported files are held in memory for this browser tab. Open Fund
+            Ledger does not transmit or silently save them. Reloading the page
+            returns to the demo ledger.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer shell">
+      <p>Open source under the MIT License.</p>
+      <p>Built for small groups doing meaningful work.</p>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
