@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security or privacy report
+    url: https://github.com/19120294/open-fund-ledger/security/policy
+    about: Report vulnerabilities and sensitive privacy concerns privately.
