@@ -70,6 +70,8 @@ single ledger. Imported files have a 2 MB safety limit.
 Never publish donor identities, bank details, private receipt links, or other
 personal information without explicit permission.
 
+For solutions to common file validation errors, see the [CSV Troubleshooting Guide](docs/troubleshooting-csv-imports.md).
+
 ## Local development
 
 Requirements: Node.js 22 or later.
