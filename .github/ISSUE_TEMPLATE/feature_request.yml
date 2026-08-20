@@ -1,0 +1,34 @@
+name: Feature request
+description: Propose an outcome for a real community transparency need
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: users
+    attributes:
+      label: Who needs this?
+      description: Describe the community group or public audience without sharing personal data.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem should be solved?
+      description: Explain the current difficulty and why existing features are insufficient.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe success without prescribing implementation details.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Privacy and accessibility considerations
+      description: Note possible disclosure, consent, keyboard, screen-reader, or visual risks.
+    validations:
+      required: true

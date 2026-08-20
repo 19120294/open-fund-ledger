@@ -1,0 +1,52 @@
+name: Bug report
+description: Report a reproducible problem without including private ledger data
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Open Fund Ledger. Use synthetic data only.
+        Never attach donor identities, bank details, or confidential receipts.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest privacy-safe example that reproduces the problem.
+      placeholder: |
+        1. Open the live demo
+        2. Select ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: Firefox 142, Chrome 140, Safari 19
+    validations:
+      required: true
+  - type: dropdown
+    id: data
+    attributes:
+      label: Data used
+      options:
+        - Built-in demo data
+        - Synthetic CSV created for this report
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I confirm this report contains no personal or confidential financial data.
+          required: true
